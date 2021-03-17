@@ -3,6 +3,14 @@
 
 [![demo_image](https://github.com/Allonsy22/sort-visualizer/blob/main/src/assets/demo.JPG "demo_image")](https://github.com/Allonsy22/sort-visualizer/blob/main/src/assets/demo.JPG "demo_image")
 
+*Available sorting algorithms:*
+
+- Bubble sort
+- Selection sort
+- Insertion sort
+- Merge sort
+- Quick sort
+
 **Project setup**
 
 *npm install*

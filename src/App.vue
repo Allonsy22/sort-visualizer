@@ -1,28 +1,41 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+  <v-app>
+    <Toolbar />
+    <v-main>
+      <Visualizer />
+      <ControlPanel />
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import Toolbar from "@/components/Toolbar";
+import Visualizer from "@/components/Visualizer";
+import ControlPanel from "@/components/ControlPanel";
 
 export default {
   name: "App",
+
   components: {
-    HelloWorld
+    Toolbar,
+    Visualizer,
+    ControlPanel
+  },
+
+  data: () => ({
+    //
+  }),
+
+  mounted() {
+    this.onWindowResize();
+    this.$store.dispatch("initColumnData");
+    window.addEventListener("resize", this.onWindowResize);
+  },
+
+  methods: {
+    onWindowResize() {
+      this.$store.dispatch("onWindowResizeHandler");
+    }
   }
 };
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

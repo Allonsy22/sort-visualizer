@@ -1,4 +1,4 @@
-import { getNumbersWithStep } from "@/utils/utils";
+import { getRandomNumbers } from "@/utils/utils";
 import {
   bubbleSort,
   selectionSort,
@@ -15,8 +15,7 @@ const ALGORITHMS = [
   quickSort
 ];
 const MAX_COLUMN_HEIGHT = 150;
-const MIN_COLUMN_HEIGHT = 1;
-const STEP = 1;
+const MIN_COLUMN_HEIGHT = 10;
 
 const state = {
   columnCount: 10,
@@ -91,11 +90,10 @@ const actions = {
   async initColumnData({ dispatch, commit, state }) {
     commit("SET_SORTED_STATUS", false);
     try {
-      const data = await getNumbersWithStep({
+      const data = await getRandomNumbers({
         min: MIN_COLUMN_HEIGHT,
         max: MAX_COLUMN_HEIGHT,
         count: state.columnCount,
-        step: STEP
       });
 
       commit("SET_COLUMN_DATA", data);
